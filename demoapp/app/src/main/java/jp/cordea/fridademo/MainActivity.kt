@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.snackbar.Snackbar
 import jp.cordea.fridademo.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -20,8 +19,6 @@ class MainActivity : AppCompatActivity() {
         binding.fab.setOnClickListener { view ->
             ++count
             binding.content.textView.text = count.toString()
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
         }
         binding.content.textView.text = count.toString()
     }
