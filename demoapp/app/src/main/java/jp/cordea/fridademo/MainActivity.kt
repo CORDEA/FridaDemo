@@ -9,6 +9,8 @@ import jp.cordea.fridademo.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+    private var count = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
@@ -16,9 +18,12 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
 
         binding.fab.setOnClickListener { view ->
+            ++count
+            binding.content.textView.text = count.toString()
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
+        binding.content.textView.text = count.toString()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
