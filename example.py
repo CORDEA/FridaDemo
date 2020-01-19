@@ -48,6 +48,21 @@ Java.perform(function() {
         Java.use('android.widget.TextView')
     );
 
+    var inputLayout1Id = activity.findViewById(0x7f08007a);
+    var inputLayout1 = Java.cast(
+        inputLayout1Id.$handle,
+        Java.use('com.google.android.material.textfield.TextInputLayout')
+    );
+
+    var inputLayout2Id = activity.findViewById(0x7f08007b);
+    var inputLayout2 = Java.cast(
+        inputLayout2Id.$handle,
+        Java.use('com.google.android.material.textfield.TextInputLayout')
+    );
+    var editText2 = inputLayout2.getEditText();
+
+    var string = Java.use('java.lang.String');
+
     var count = 1;
     fab.setOnClickListener(Java.registerClass({
         name: 'jp.cordea.fridademo.OnClickListener',
@@ -55,8 +70,14 @@ Java.perform(function() {
         methods: {
             onClick: function(v) {
                 count *= 2
-                var string = Java.use('java.lang.String');
                 textView.setText(string.$new(count.toString()));
+
+                var text = inputLayout1.getEditText().getText();
+                var editText = Java.cast(
+                    editText2.$handle,
+                    Java.use('android.widget.TextView')
+                );
+                editText.setText(text);
                 send('click');
             }
         }
