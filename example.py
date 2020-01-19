@@ -42,11 +42,21 @@ Java.perform(function() {
     );
     var listener = Java.use('android.view.View$OnClickListener');
 
+    var textViewId = activity.findViewById(0x7f0800dd);
+    var textView = Java.cast(
+        textViewId.$handle,
+        Java.use('android.widget.TextView')
+    );
+
+    var count = 1;
     fab.setOnClickListener(Java.registerClass({
         name: 'jp.cordea.fridademo.OnClickListener',
         implements: [listener],
         methods: {
             onClick: function(v) {
+                count *= 2
+                var string = Java.use('java.lang.String');
+                textView.setText(string.$new(count.toString()));
                 send('click');
             }
         }
