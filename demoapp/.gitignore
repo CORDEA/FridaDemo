@@ -46,6 +46,7 @@ captures/
 .idea/modules.xml
 .idea/assetWizardSettings.xml
 .idea/kotlinScripting.xml
+.idea/jarRepositories.xml
 
 # Keystore files
 *.jks
