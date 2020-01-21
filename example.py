@@ -35,26 +35,31 @@ Java.perform(function() {
         onComplete: function() {}
     });
 
-    var fabId = activity.findViewById(0x7f080068);
+    var detector = Java.use('jp.cordea.fridademo.Detector');
+    detector.detect.overload().implementation = function() {
+        return true;
+    }
+
+    var fabId = activity.findViewById(0x7f080069);
     var fab = Java.cast(
         fabId.$handle,
         Java.use('com.google.android.material.floatingactionbutton.FloatingActionButton')
     );
     var listener = Java.use('android.view.View$OnClickListener');
 
-    var textViewId = activity.findViewById(0x7f0800dd);
+    var textViewId = activity.findViewById(0x7f0800de);
     var textView = Java.cast(
         textViewId.$handle,
         Java.use('android.widget.TextView')
     );
 
-    var inputLayout1Id = activity.findViewById(0x7f08007a);
+    var inputLayout1Id = activity.findViewById(0x7f08007b);
     var inputLayout1 = Java.cast(
         inputLayout1Id.$handle,
         Java.use('com.google.android.material.textfield.TextInputLayout')
     );
 
-    var inputLayout2Id = activity.findViewById(0x7f08007b);
+    var inputLayout2Id = activity.findViewById(0x7f08007c);
     var inputLayout2 = Java.cast(
         inputLayout2Id.$handle,
         Java.use('com.google.android.material.textfield.TextInputLayout')
